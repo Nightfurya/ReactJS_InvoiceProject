@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 import { Switch, Route } from "react-router-dom";
-import AuthForm from "./components/AuthForm/AuthForm";
+import AuthForm from "../src/Firebase/firebase";
 
 function App() {
   return (
