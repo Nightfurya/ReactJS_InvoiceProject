@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
 import "./AuthForm.scss";
-import firebase from "../src/Firebase/firebase";
 
 class AuthForm extends Component {
   state = {
