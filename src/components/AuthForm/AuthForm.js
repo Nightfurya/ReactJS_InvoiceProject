@@ -13,6 +13,7 @@ class AuthForm extends Component {
 
   makeSubmit = e => {
     e.preventDefault();
+
     const LOGIN = document.querySelector('input[name="login"]');
     const PASSWORD = document.querySelector('input[name="password"]');
 
