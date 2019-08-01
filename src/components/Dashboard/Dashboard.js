@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "./Dashboard.scss";
 import Header from "../Header/Header";
 import Table from "../Table/Table";
@@ -46,6 +46,7 @@ class Dashboard extends Component {
               <div className="container-for-btn">
                 <ContainedButtons color="primary" buttonName="Add new invoice" />
               </div>
+              <Link to={"/"}>Auth</Link>
             </div>
           ) : (
             <CircularIndeterminate />

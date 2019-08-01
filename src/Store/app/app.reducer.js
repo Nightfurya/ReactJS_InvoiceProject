@@ -9,6 +9,10 @@ const reducer = {
   [appActions.userSignIn]: state => ({
     ...state,
     authToken: true
+  }),
+  [appActions.userSignOut]: state => ({
+    ...state,
+    authToken: null
   })
 };
 
