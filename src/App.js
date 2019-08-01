@@ -4,16 +4,16 @@ import { Switch, Route } from "react-router-dom";
 import AuthForm from "./components/AuthForm/AuthForm";
 import firebase from "../src/Firebase/firebase";
 
+import Dashboard from "./components/Dashboard/Dashboard";
+
 function App() {
   return (
     <div className="App">
-      <div className="wrapper">
-        <Switch>
-          <Route exact path="/" component={AuthForm} />
-          <Route exact path="/home" />
-          <Route exact path="/users" />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path="/" component={AuthForm} />
+        <Route exact path="/home" component={Dashboard} />
+        <Route exact path="/users" />
+      </Switch>
     </div>
   );
 }

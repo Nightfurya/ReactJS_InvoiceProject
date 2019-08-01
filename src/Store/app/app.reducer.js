@@ -1,7 +1,9 @@
 import { createReducer } from "redux-act";
 import * as appActions from "./app.actions";
 
-const initialState = {};
+const initialState = {
+  authToken: true
+};
 
 const reducer = {};
 
