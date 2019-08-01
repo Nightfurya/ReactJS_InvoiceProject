@@ -3,7 +3,6 @@ import "./App.scss";
 import { Switch, Route } from "react-router-dom";
 import AuthForm from "./components/AuthForm/AuthForm";
 import firebase from "../src/Firebase/firebase";
-
 import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
