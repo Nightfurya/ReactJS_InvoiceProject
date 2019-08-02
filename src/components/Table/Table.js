@@ -36,7 +36,7 @@ export default function SimpleTable(props) {
         </TableHead>
         <TableBody>
           {array.map(item => (
-            <TableRow>
+            <TableRow key={item.invoiceNumber}>
               <TableCell component="th" scope="row">
                 {item.invoiceNumber}
               </TableCell>

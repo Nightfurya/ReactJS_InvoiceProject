@@ -46,7 +46,6 @@ class Dashboard extends Component {
               <div className="container-for-btn">
                 <ContainedButtons color="primary" buttonName="Add new invoice" />
               </div>
-              <Link to={"/"}>Auth</Link>
             </div>
           ) : (
             <CircularIndeterminate />
