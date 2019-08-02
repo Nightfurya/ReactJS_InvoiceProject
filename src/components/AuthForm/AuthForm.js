@@ -11,6 +11,14 @@ class AuthForm extends Component {
     error: false
   };
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        this.props.userSignInSuccess();
+      }
+    });
+  }
+
   makeSubmit = e => {
     e.preventDefault();
 
