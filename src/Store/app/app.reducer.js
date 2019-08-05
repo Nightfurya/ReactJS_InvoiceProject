@@ -13,6 +13,10 @@ const reducer = {
   [appActions.userSignOut]: state => ({
     ...state,
     authToken: null
+  }),
+  [appActions.getFirebaseData]: (state, { reducerFieldName, baseData }) => ({
+    ...state,
+    [reducerFieldName]: baseData
   })
 };
 
