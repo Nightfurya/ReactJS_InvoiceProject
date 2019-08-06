@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router";
 import "./AuthForm.scss";
 import firebase from "../../Firebase/firebase";
+
 //Redux
 import { connect } from "react-redux";
 import * as appActions from "../../Store/app/app.actions";

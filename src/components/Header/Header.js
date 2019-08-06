@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Header.scss";
 import firebase from "../../Firebase/firebase";
-import ContainedButtons from "../ui/Button/Button";
+import ActionButton from "../ui/ActionButton/ActionButton";
 
 //redux
 import { connect } from "react-redux";
@@ -20,7 +20,7 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <ContainedButtons color="secondary" onHandleClick={e => this.makeLogOut(e)} buttonName="Log out" />
+        <ActionButton color="secondary" onHandleClick={e => this.makeLogOut(e)} buttonName="Log out" />
       </header>
     );
   }

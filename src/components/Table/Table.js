@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import ButtonSizes from "../ui/ButtonSizes/ButtonSizes";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,8 +31,7 @@ export default function SimpleTable(props) {
             <TableCell>Date of creation:</TableCell>
             <TableCell>Customer</TableCell>
             <TableCell>Sum</TableCell>
-            <TableCell>Save pdf</TableCell>
-            <TableCell>Print</TableCell>
+            <TableCell align="center">PDF</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -43,8 +43,9 @@ export default function SimpleTable(props) {
               <TableCell>{item.dateOfInvoice}</TableCell>
               <TableCell>{item.customer}</TableCell>
               <TableCell>{item.price}</TableCell>
-              <TableCell>save pdf</TableCell>
-              <TableCell>print</TableCell>
+              <TableCell align="center">
+                <ButtonSizes />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

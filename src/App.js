@@ -1,6 +1,6 @@
 import React from "react";
-import "./App.scss";
 import { Switch, Route } from "react-router-dom";
+import "./App.scss";
 import AuthForm from "./components/AuthForm/AuthForm";
 import Dashboard from "./components/Dashboard/Dashboard";
 import InvoiceDoc from "./components/InvoiceDoc/InvoiceDoc";
