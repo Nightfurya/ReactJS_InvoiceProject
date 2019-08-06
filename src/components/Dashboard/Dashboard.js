@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./Dashboard.scss";
 import Header from "../Header/Header";
 import Table from "../Table/Table";
-import ContainedButtons from "../ui/Button/Button";
-import CircularIndeterminate from "../ui/Loader/Loader";
+import SimpleModal from "../Modal/Modal";
+import ActionButton from "../ui/ActionButton/ActionButton";
+import ComponentLoader from "../ui/ComponentLoader/ComponentLoader";
 import firebase from "../../Firebase/firebase";
 
 //redux
@@ -13,7 +14,8 @@ import * as appActions from "../../Store/app/app.actions";
 
 class Dashboard extends Component {
   state = {
-    data: []
+    data: [],
+    modalOpen: false
   };
   componentDidMount() {
     const db = firebase.firestore();
@@ -33,6 +35,12 @@ class Dashboard extends Component {
     });
   }
 
+  openModal = () => {
+    this.setState({
+      modalOpen: !this.state.modalOpen
+    });
+  };
+
   render() {
     if (!this.props.authToken) {
       return <Redirect to={"/"} />;
@@ -44,11 +52,12 @@ class Dashboard extends Component {
             <div className="dashboard-container">
               <Table array={this.state.data} />
               <div className="container-for-btn">
-                <ContainedButtons color="primary" buttonName="Add new invoice" />
+                <ActionButton color="primary" buttonName="Add new invoice" onHandleClick={this.openModal} />
+                <SimpleModal open={this.state.modalOpen} handleClose={this.openModal} />
               </div>
             </div>
           ) : (
-            <CircularIndeterminate />
+            <ComponentLoader />
           )}
         </>
       );

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 
-export default function ContainedButtons(props) {
+export default function ActionButton(props) {
   const { buttonName, color, onHandleClick } = props;
 
   return (
