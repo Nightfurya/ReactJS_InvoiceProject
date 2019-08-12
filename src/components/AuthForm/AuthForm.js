@@ -42,7 +42,7 @@ class AuthForm extends Component {
       if (user) {
         this.props.userSignInSuccess();
       } else {
-        console.log("error");
+        console.log(user, "error, i can't sign in");
       }
     });
   };

@@ -22,6 +22,7 @@ class Dashboard extends Component {
     BASE_NAMES.forEach(item => {
       let PARAMS = { baseName: item, reducerFieldName: item };
       this.props.getFirebaseDataSuccess(PARAMS);
+      // console.log(this.props.getFirebaseDataSuccess(PARAMS));
     });
 
     setTimeout(() => {
@@ -32,7 +33,7 @@ class Dashboard extends Component {
         SERVICES: this.props.SERVICES,
         SUPLIERS: this.props.SUPLIERS
       });
-    }, 3000);
+    }, 1500);
   }
 
   addNewInvoiceFunc = () => {
@@ -66,7 +67,15 @@ class Dashboard extends Component {
               <Table array={this.state.INVOICES} />
               <div className="container-for-btn">
                 <ActionButton color="primary" buttonName="Add new invoice" onHandleClick={this.openModal} />
-                <SimpleModal open={this.state.modalOpen} handleClose={this.openModal} />
+                <SimpleModal
+                  open={this.state.modalOpen}
+                  handleClose={this.openModal}
+                  INVOICES={this.props.INVOICES}
+                  BANKS={this.props.BANKS}
+                  CUSTOMERS={this.props.CUSTOMERS}
+                  SERVICES={this.props.SERVICES}
+                  SUPLIERS={this.props.SUPLIERS}
+                />
               </div>
             </div>
           ) : (
@@ -81,7 +90,11 @@ class Dashboard extends Component {
 function mapStateToProps({ app }) {
   return {
     authToken: app.authToken,
-    INVOICES: app.INVOICES
+    INVOICES: app.INVOICES,
+    BANKS: app.BANKS,
+    CUSTOMERS: app.CUSTOMERS,
+    SERVICES: app.SERVICES,
+    SUPLIERS: app.SUPLIERS
   };
 }
 export default connect(

@@ -29,6 +29,7 @@ export default function SimpleModal(props) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
   const { open, handleClose } = props;
+  const { INVOICES, BANKS, CUSTOMERS, SERVICES, SUPLIERS } = props;
 
   return (
     <div>
@@ -45,7 +46,13 @@ export default function SimpleModal(props) {
           <p id="simple-modal-description" className="text__center">
             Please, fill out all required fields to create and save a new invoice.
           </p>
-          <InputsFormInModal />
+          <InputsFormInModal
+            bankArray={BANKS}
+            invoicesArray={INVOICES}
+            customersArray={CUSTOMERS}
+            servicesArray={SERVICES}
+            supliersArray={SUPLIERS}
+          />
         </div>
       </Modal>
     </div>
