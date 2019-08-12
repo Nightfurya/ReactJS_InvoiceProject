@@ -36,7 +36,9 @@ export default function InputsFormInModal(props) {
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
-    setNewCustomer(event.target.value);
+    if (name === "Customer") {
+      setNewCustomer(event.target.value);
+    }
   };
 
   return (
