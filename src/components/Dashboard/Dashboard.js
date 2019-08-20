@@ -6,7 +6,7 @@ import Table from "../Table/Table";
 import SimpleModal from "../Modal/Modal";
 import ActionButton from "../ui/ActionButton/ActionButton";
 import ComponentLoader from "../ui/ComponentLoader/ComponentLoader";
-import firebase from "../../Firebase/firebase";
+// import firebase from "../../Firebase/firebase";
 //redux
 import { connect } from "react-redux";
 import * as appActions from "../../Store/app/app.actions";
@@ -18,7 +18,7 @@ class Dashboard extends Component {
     modalOpen: false
   };
   componentDidMount() {
-    const BASE_NAMES = ["INVOICES", "BANKS", "CUSTOMERS", "SERVICES", "SUPLIERS"];
+    const BASE_NAMES = ["BANKS", "CURRENCIES", "CUSTOMERS", "INVOICES", "SERVICES", "SUPPLIERS"];
     BASE_NAMES.forEach(item => {
       let PARAMS = { baseName: item, reducerFieldName: item };
       this.props.getFirebaseDataSuccess(PARAMS);
@@ -27,27 +27,28 @@ class Dashboard extends Component {
 
     setTimeout(() => {
       this.setState({
-        INVOICES: this.props.INVOICES,
         BANKS: this.props.BANKS,
+        CURRENCIES: this.props.CURRENCIES,
         CUSTOMERS: this.props.CUSTOMERS,
+        INVOICES: this.props.INVOICES,
         SERVICES: this.props.SERVICES,
-        SUPLIERS: this.props.SUPLIERS
+        SUPPLIERS: this.props.SUPLIERS
       });
-    }, 1500);
+    }, 2000);
   }
 
-  addNewInvoiceFunc = () => {
-    const db = firebase.firestore();
-    db.collection("INVOICES")
-      .doc()
-      .set({
-        name: "Los Angeles",
-        state: "CA",
-        country: "USA"
-      })
-      .then(() => console.log("Document successfully written!"))
-      .catch(error => console.error("Error writing document: ", error));
-  };
+  // addNewInvoiceFunc = () => {
+  //   const db = firebase.firestore();
+  //   db.collection("INVOICES")
+  //     .doc()
+  //     .set({
+  //       name: "Los Angeles",
+  //       state: "CA",
+  //       country: "USA"
+  //     })
+  //     .then(() => console.log("Document successfully written!"))
+  //     .catch(error => console.error("Error writing document: ", error));
+  // };
 
   openModal = () => {
     this.setState({
@@ -70,11 +71,12 @@ class Dashboard extends Component {
                 <SimpleModal
                   open={this.state.modalOpen}
                   handleClose={this.openModal}
-                  INVOICES={this.props.INVOICES}
                   BANKS={this.props.BANKS}
+                  CURRENCIES={this.props.CURRENCIES}
                   CUSTOMERS={this.props.CUSTOMERS}
+                  INVOICES={this.props.INVOICES}
                   SERVICES={this.props.SERVICES}
-                  SUPLIERS={this.props.SUPLIERS}
+                  SUPPLIERS={this.props.SUPPLIERS}
                 />
               </div>
             </div>
@@ -90,11 +92,12 @@ class Dashboard extends Component {
 function mapStateToProps({ app }) {
   return {
     authToken: app.authToken,
-    INVOICES: app.INVOICES,
     BANKS: app.BANKS,
+    CURRENCIES: app.CURRENCIES,
     CUSTOMERS: app.CUSTOMERS,
+    INVOICES: app.INVOICES,
     SERVICES: app.SERVICES,
-    SUPLIERS: app.SUPLIERS
+    SUPPLIERS: app.SUPPLIERS
   };
 }
 export default connect(

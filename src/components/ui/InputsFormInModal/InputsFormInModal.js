@@ -31,8 +31,7 @@ export default function InputsFormInModal(props) {
   const [values, setValues] = React.useState({});
   const [selectedDate, handleDateChange] = React.useState(new Date());
   const [newCustomer, setNewCustomer] = React.useState("New customer");
-  const [choosenBank, setChoosenBank] = React.useState(0);
-  const { bankArray, invoicesArray, customersArray, servicesArray, supliersArray } = props;
+  const { banksArray, currenciesArray, customersArray, invoicesArray, servicesArray, suppliersArray } = props;
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
@@ -66,7 +65,7 @@ export default function InputsFormInModal(props) {
         select
         label="Supplier"
         className={classes.textField}
-        value={values.Supplier || supliersArray[0].name}
+        value={values.Supplier || suppliersArray[0].supplierName__eng}
         onChange={handleChange("Supplier")}
         SelectProps={{
           MenuProps: {
@@ -77,9 +76,9 @@ export default function InputsFormInModal(props) {
         margin="normal"
         variant="outlined"
       >
-        {supliersArray.map(item => (
-          <MenuItem key={item.name} value={item.name}>
-            {item.name}
+        {suppliersArray.map(item => (
+          <MenuItem key={item.supplierName__eng} value={item.supplierName__eng}>
+            {item.supplierName__eng}
           </MenuItem>
         ))}
       </TextField>
@@ -101,8 +100,8 @@ export default function InputsFormInModal(props) {
       >
         <MenuItem value="New customer">New Customer</MenuItem>
         {customersArray.map(item => (
-          <MenuItem key={item.name} value={item.name}>
-            {item.name} ({item.address})
+          <MenuItem key={item.customerInformation} value={item.customerInformation}>
+            {item.customerInformation}
           </MenuItem>
         ))}
       </TextField>
@@ -131,7 +130,7 @@ export default function InputsFormInModal(props) {
         select
         label="Service"
         className={classes.textField}
-        value={values.Service || servicesArray[0].name}
+        value={values.Service || servicesArray[0].description__eng}
         onChange={handleChange("Service")}
         SelectProps={{
           MenuProps: {
@@ -143,8 +142,8 @@ export default function InputsFormInModal(props) {
         variant="outlined"
       >
         {servicesArray.map(item => (
-          <MenuItem key={item.name} value={item.name}>
-            {item.name}
+          <MenuItem key={item.description__eng} value={item.description__eng}>
+            {item.description__eng}
           </MenuItem>
         ))}
       </TextField>
@@ -154,7 +153,7 @@ export default function InputsFormInModal(props) {
         select
         label="Bank"
         className={classes.textField}
-        value={values.Bank || bankArray[0].name}
+        value={values.Bank || banksArray[0].beneficiaryBank__eng}
         onChange={handleChange("Bank")}
         SelectProps={{
           MenuProps: {
@@ -165,9 +164,9 @@ export default function InputsFormInModal(props) {
         margin="normal"
         variant="outlined"
       >
-        {bankArray.map(item => (
-          <MenuItem key={item.name} value={item.name}>
-            {item.name}
+        {banksArray.map(item => (
+          <MenuItem key={item.beneficiaryBank__eng} value={item.beneficiaryBank__eng}>
+            {item.beneficiaryBank__eng}
           </MenuItem>
         ))}
       </TextField>
@@ -177,7 +176,7 @@ export default function InputsFormInModal(props) {
         select
         label="Currency"
         className={classes.textField}
-        value={values.Currency || bankArray[0].currency[0]}
+        value={values.Currency || currenciesArray[0].currencyName__eng}
         onChange={handleChange("Currency")}
         SelectProps={{
           MenuProps: {
@@ -188,9 +187,9 @@ export default function InputsFormInModal(props) {
         margin="normal"
         variant="outlined"
       >
-        {bankArray[choosenBank].currency.map(item => (
-          <MenuItem key={item} value={item}>
-            {item}
+        {currenciesArray.map(item => (
+          <MenuItem key={item.currencyName__eng} value={item.currencyName__eng}>
+            {item.currencyName__eng}
           </MenuItem>
         ))}
       </TextField>
