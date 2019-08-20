@@ -58,7 +58,7 @@ class AuthForm extends Component {
       return <Redirect to={"/home"} />;
     } else {
       return (
-        <div>
+        <div className="auth-form__container">
           <form className="auth-form">
             <h3>INVOICE AUTH</h3>
             <input
