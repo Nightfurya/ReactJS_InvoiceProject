@@ -29,6 +29,7 @@ export default function SimpleTable(props) {
           <TableRow>
             <TableCell>№ Invoice</TableCell>
             <TableCell>Date of creation:</TableCell>
+            <TableCell>Supplier</TableCell>
             <TableCell>Customer</TableCell>
             <TableCell>Sum</TableCell>
             <TableCell align="center">PDF</TableCell>
@@ -40,9 +41,12 @@ export default function SimpleTable(props) {
               <TableCell component="th" scope="row">
                 {item.invoiceNumber}
               </TableCell>
-              <TableCell>{item.dateOfInvoice}</TableCell>
-              <TableCell>{item.customer}</TableCell>
-              <TableCell>{item.price}</TableCell>
+              <TableCell>{item.invoiceDate}</TableCell>
+              <TableCell>{item.supplierName__eng}</TableCell>
+              <TableCell>{item.customerInformation}</TableCell>
+              <TableCell>
+                {item.totalPrice} {item.currencyName__eng}
+              </TableCell>
               <TableCell align="center">
                 <ButtonSizes />
               </TableCell>
