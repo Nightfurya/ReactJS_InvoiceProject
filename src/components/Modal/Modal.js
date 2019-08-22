@@ -28,8 +28,7 @@ const useStyles = makeStyles(theme => ({
 export default function SimpleModal(props) {
   const classes = useStyles();
   const [modalStyle] = React.useState(getModalStyle);
-  const { open, handleClose } = props;
-  const { BANKS, CURRENCIES, CUSTOMERS, INVOICES, SERVICES, SUPPLIERS } = props;
+  const { open, handleClose, BANKS, CURRENCIES, CUSTOMERS, INVOICES, SERVICES, SUPPLIERS } = props;
 
   return (
     <div>
