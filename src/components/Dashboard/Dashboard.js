@@ -15,24 +15,20 @@ class Dashboard extends Component {
   state = {
     INVOICES: [],
     data: [],
-    modalOpen: false
+    modalOpen: false,
+    isMounted: false
   };
+
   componentDidMount() {
     const BASE_NAMES = ["BANKS", "CURRENCIES", "CUSTOMERS", "INVOICES", "SERVICES", "SUPPLIERS"];
     BASE_NAMES.forEach(item => {
       let PARAMS = { baseName: item, reducerFieldName: item };
       this.props.getFirebaseDataSuccess(PARAMS);
-      // console.log(this.props.getFirebaseDataSuccess(PARAMS));
     });
 
     setTimeout(() => {
       this.setState({
-        BANKS: this.props.BANKS,
-        CURRENCIES: this.props.CURRENCIES,
-        CUSTOMERS: this.props.CUSTOMERS,
-        INVOICES: this.props.INVOICES,
-        SERVICES: this.props.SERVICES,
-        SUPPLIERS: this.props.SUPLIERS
+        INVOICES: this.props.INVOICES
       });
     }, 2000);
   }
@@ -65,7 +61,7 @@ class Dashboard extends Component {
           <Header />
           {this.state.INVOICES.length !== 0 ? (
             <div className="dashboard-container">
-              <Table array={this.state.INVOICES} />
+              <Table array={this.props.INVOICES} />
               <div className="container-for-btn">
                 <ActionButton color="primary" buttonName="Add new invoice" onHandleClick={this.openModal} />
                 <SimpleModal

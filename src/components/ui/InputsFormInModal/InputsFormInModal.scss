@@ -2,8 +2,13 @@
   height: 86%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   overflow-y: auto;
   padding: 0 0 20px;
+  input,
+  select {
+    margin: 5px 0;
+  }
 }
 
 /* Customize website's scrollbar like Mac OS
@@ -26,4 +31,51 @@ Not supports in Firefox and IE */
 /* set button(top and bottom of the scrollbar) */
 .form__flex-container::-webkit-scrollbar-button {
   display: none;
+}
+.data-field {
+  width: 95%;
+  padding: 7px 10px;
+  font-size: 18px;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.data-field__textarea {
+  width: 94%;
+  min-height: 200px;
+  padding: 10px 15px;
+  resize: none;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.data-field__time {
+  width: 40%;
+  padding: 15px 10px;
+}
+.invoice-button {
+  margin: 10px 0;
+  padding: 10px 30px;
+  cursor: pointer;
+  border-style: none;
+  background: #3f51b5;
+  font-size: 18px;
+  color: #ffffff;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.section__title {
+  color: rgb(255, 0, 0);
+  margin-bottom: 0;
+}
+select,
+option {
+  width: 95%;
 }
