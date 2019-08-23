@@ -51,6 +51,7 @@ export default function SimpleModal(props) {
             customersArray={CUSTOMERS}
             invoicesArray={INVOICES}
             servicesArray={SERVICES}
+            closeMoladWindow={handleClose}
             suppliersArray={SUPPLIERS}
           />
         </div>
