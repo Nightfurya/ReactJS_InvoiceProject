@@ -42,8 +42,11 @@ Not supports in Firefox and IE */
   -ms-border-radius: 7px;
   -o-border-radius: 7px;
 }
+.data-field__input {
+  width: 91%;
+}
 .data-field__textarea {
-  width: 94%;
+  width: 90%;
   min-height: 200px;
   padding: 10px 15px;
   resize: none;
@@ -84,6 +87,20 @@ option {
   font-size: 22px;
   margin: 0;
 }
+.success {
+  color: green;
+  font-size: 22px;
+  margin: 0;
+}
 .error-border {
   border: 1px solid red;
+}
+.container__big {
+  width: 96%;
+  border: 3px solid rgb(6, 122, 175);
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
