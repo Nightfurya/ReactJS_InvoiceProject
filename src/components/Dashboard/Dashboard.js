@@ -33,23 +33,24 @@ class Dashboard extends Component {
     }, 2000);
   }
 
-  // addNewInvoiceFunc = () => {
-  //   const db = firebase.firestore();
-  //   db.collection("INVOICES")
-  //     .doc()
-  //     .set({
-  //       name: "Los Angeles",
-  //       state: "CA",
-  //       country: "USA"
-  //     })
-  //     .then(() => console.log("Document successfully written!"))
-  //     .catch(error => console.error("Error writing document: ", error));
-  // };
-
   openModal = () => {
     this.setState({
       modalOpen: !this.state.modalOpen
     });
+
+    if (this.state.modalOpen === true) {
+      const BASE_NAMES = ["BANKS", "CURRENCIES", "CUSTOMERS", "INVOICES", "SERVICES", "SUPPLIERS"];
+      BASE_NAMES.forEach(item => {
+        let PARAMS = { baseName: item, reducerFieldName: item };
+        this.props.getFirebaseDataSuccess(PARAMS);
+      });
+
+      setTimeout(() => {
+        this.setState({
+          INVOICES: this.props.INVOICES
+        });
+      }, 2000);
+    }
   };
 
   render() {
