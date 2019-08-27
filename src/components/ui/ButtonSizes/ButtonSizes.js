@@ -21,9 +21,6 @@ export default function ButtonSizes() {
     <div>
       <div>
         <Fab size="small" color="secondary" aria-label="add" className={classes.margin}>
-          <SaveIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
-        </Fab>
-        <Fab size="small" color="secondary" aria-label="add" className={classes.margin}>
           <PrintIcon className={clsx(classes.leftIcon, classes.iconSmall)} />
         </Fab>
       </div>

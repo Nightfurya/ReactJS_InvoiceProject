@@ -8,9 +8,9 @@ class InputsFormInModal extends Component {
     invoiceDate: "",
     supplier__new: "",
     supplierName__eng: "",
-    supplierAdress__eng: "",
+    supplierAddress__eng: "",
     supplierName__ua: "",
-    supplierAdress__ua: "",
+    supplierAddress__ua: "",
     customerInformation__new: "",
     customerInformation: "",
     description__new: "",
@@ -23,6 +23,8 @@ class InputsFormInModal extends Component {
     beneficiaryBank__new: "",
     beneficiaryBank__eng: "",
     bankInformation: "",
+    totalPriceText__eng: "",
+    totalPriceText__ua: "",
     invoiceDescription:
       "Pay within 90 days. / Сплатити протягом 90 днів. All charges of correspondent banks are at the Supplier's expenses. / Усі комісіі банків-кореспондентів сплачує виконавець. Please note, that payment according to this invoice at the same time is the confirmation of performed works, delivered services and final mutual installments between Parties without any additional documents. Also it is to acknowledge that Parties have no claims to each other. / Оплата згідно цього Iнвойсу одночасно є підтвердженням виконаних робіт, наданих послуг, кінцевих розрахунків між Сторонами і того, що Сторони не мають взаємних претензій , і не вамагає підписання додаткових документів.",
     error: false,
@@ -52,9 +54,9 @@ class InputsFormInModal extends Component {
         invoiceNumber: this.state.invoiceNumber,
         invoiceDate: this.state.invoiceDate,
         supplierName__eng: this.state.supplierName__eng,
-        supplierAdress__eng: this.state.supplierAdress__eng,
+        supplierAddress__eng: this.state.supplierAddress__eng,
         supplierName__ua: this.state.supplierName__ua,
-        supplierAdress__ua: this.state.supplierAdress__ua,
+        supplierAddress__ua: this.state.supplierAddress__ua,
         customerInformation: this.state.customerInformation,
         description__eng: this.state.description__eng,
         description__ua: this.state.description__ua,
@@ -63,6 +65,8 @@ class InputsFormInModal extends Component {
         totalPrice: this.state.totalPrice,
         beneficiaryBank__eng: this.state.beneficiaryBank__eng,
         bankInformation: this.state.bankInformation,
+        totalPriceText__eng: this.state.totalPriceText__eng,
+        totalPriceText__ua: this.state.totalPriceText__ua,
         invoiceDescription: this.state.invoiceDescription
       })
       .then(() => console.log("Document successfully written!"))
@@ -116,9 +120,9 @@ class InputsFormInModal extends Component {
         .doc()
         .set({
           supplierName__eng: this.state.supplierName__eng,
-          supplierAdress__eng: this.state.supplierAdress__eng,
+          supplierAddress__eng: this.state.supplierAddress__eng,
           supplierName__ua: this.state.supplierName__ua,
-          supplierAdress__ua: this.state.supplierAdress__ua
+          supplierAddress__ua: this.state.supplierAddress__ua
         })
         .then(() => console.log("Document successfully written!"))
         .catch(error => console.error("Error writing document: ", error));
@@ -147,13 +151,13 @@ class InputsFormInModal extends Component {
           />
           <input
             className={
-              this.state.supplierAdress__eng === "error-border"
+              this.state.supplierAddress__eng === "error-border"
                 ? "data-field data-field__input error-border"
                 : "data-field data-field__input"
             }
             type="text"
-            placeholder="Supplier's adress (ENG)"
-            onChange={this.handleChange("supplierAdress__eng")}
+            placeholder="Supplier's Address (ENG)"
+            onChange={this.handleChange("supplierAddress__eng")}
           />
           <input
             className={
@@ -167,13 +171,13 @@ class InputsFormInModal extends Component {
           />
           <input
             className={
-              this.state.supplierAdress__ua === "error-border"
+              this.state.supplierAddress__ua === "error-border"
                 ? "data-field data-field__input error-border"
                 : "data-field data-field__input"
             }
             type="text"
-            placeholder="Supplier's adress (UA)"
-            onChange={this.handleChange("supplierAdress__ua")}
+            placeholder="Supplier's Address (UA)"
+            onChange={this.handleChange("supplierAddress__ua")}
           />
         </>
       );
@@ -198,21 +202,21 @@ class InputsFormInModal extends Component {
               </option>
             ))}
           </select>
-          <p>Supplier's adress (ENG):</p>
+          <p>Supplier's Address (ENG):</p>
           <select
             className={
-              this.state.supplierAdress__eng === "error-border"
+              this.state.supplierAddress__eng === "error-border"
                 ? "data-field data-field__select error-border"
                 : "data-field data-field__select"
             }
-            onChange={this.handleChange("supplierAdress__eng")}
+            onChange={this.handleChange("supplierAddress__eng")}
           >
             <option defaultValue="-- select an option --" style={{ display: "none" }}>
               -- select an option --
             </option>
             {suppliersArray.map(item => (
-              <option key={item.supplierAdress__eng} value={item.supplierAdress__eng}>
-                {item.supplierAdress__eng}
+              <option key={item.supplierAddress__eng} value={item.supplierAddress__eng}>
+                {item.supplierAddress__eng}
               </option>
             ))}
           </select>
@@ -234,21 +238,21 @@ class InputsFormInModal extends Component {
               </option>
             ))}
           </select>
-          <p>Supplier's adress (UA):</p>
+          <p>Supplier's Address (UA):</p>
           <select
             className={
-              this.state.supplierAdress__ua === "error-border"
+              this.state.supplierAddress__ua === "error-border"
                 ? "data-field data-field__select error-border"
                 : "data-field data-field__select"
             }
-            onChange={this.handleChange("supplierAdress__ua")}
+            onChange={this.handleChange("supplierAddress__ua")}
           >
             <option defaultValue="-- select an option --" style={{ display: "none" }}>
               -- select an option --
             </option>
             {suppliersArray.map(item => (
-              <option key={item.supplierAdress__ua} value={item.supplierAdress__ua}>
-                {item.supplierAdress__ua}
+              <option key={item.supplierAddress__ua} value={item.supplierAddress__ua}>
+                {item.supplierAddress__ua}
               </option>
             ))}
           </select>
@@ -599,9 +603,29 @@ class InputsFormInModal extends Component {
               ? "data-field data-field__input error-border"
               : "data-field data-field__input"
           }
-          type="number"
+          type="text"
           placeholder="Price of the service"
           onChange={this.handleChange("totalPrice")}
+        />
+        <input
+          className={
+            this.state.totalPrice === "error-border"
+              ? "data-field data-field__input error-border"
+              : "data-field data-field__input"
+          }
+          type="text"
+          placeholder="Price of the service in english"
+          onChange={this.handleChange("totalPriceText__eng")}
+        />
+        <input
+          className={
+            this.state.totalPrice === "error-border"
+              ? "data-field data-field__input error-border"
+              : "data-field data-field__input"
+          }
+          type="text"
+          placeholder="Price of the service in ukrainian"
+          onChange={this.handleChange("totalPriceText__ua")}
         />
 
         <p className="section__title">Bank name (ENG):</p>

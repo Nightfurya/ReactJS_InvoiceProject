@@ -11,7 +11,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={AuthForm} />
         <Route exact path="/home" component={Dashboard} />
-        <Route exact path="/invoice" component={InvoiceDoc} />
+        <Route exact path="/invoice/:id?" component={InvoiceDoc} />
         <Route exact path="/users" />
       </Switch>
     </div>

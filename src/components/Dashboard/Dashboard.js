@@ -6,7 +6,6 @@ import Table from "../Table/Table";
 import SimpleModal from "../Modal/Modal";
 import ActionButton from "../ui/ActionButton/ActionButton";
 import ComponentLoader from "../ui/ComponentLoader/ComponentLoader";
-// import firebase from "../../Firebase/firebase";
 //redux
 import { connect } from "react-redux";
 import * as appActions from "../../Store/app/app.actions";

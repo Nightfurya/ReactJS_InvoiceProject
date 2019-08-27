@@ -7,6 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import ButtonSizes from "../ui/ButtonSizes/ButtonSizes";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,7 +49,9 @@ export default function SimpleTable(props) {
                 {item.totalPrice} {item.currencyName__eng}
               </TableCell>
               <TableCell align="center">
-                <ButtonSizes />
+                <Link to={"/invoice/" + item.invoiceNumber}>
+                  <ButtonSizes />
+                </Link>
               </TableCell>
             </TableRow>
           ))}
