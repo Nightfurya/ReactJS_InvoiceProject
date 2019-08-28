@@ -20,11 +20,12 @@ class InputsFormInModal extends Component {
     currencyName__eng: "",
     currencyName__ua: "",
     totalPrice: "",
+    quantity: "",
+    totalPriceText__eng: "",
+    totalPriceText__ua: "",
     beneficiaryBank__new: "",
     beneficiaryBank__eng: "",
     bankInformation: "",
-    totalPriceText__eng: "",
-    totalPriceText__ua: "",
     invoiceDescription:
       "Pay within 90 days. / Сплатити протягом 90 днів. All charges of correspondent banks are at the Supplier's expenses. / Усі комісіі банків-кореспондентів сплачує виконавець. Please note, that payment according to this invoice at the same time is the confirmation of performed works, delivered services and final mutual installments between Parties without any additional documents. Also it is to acknowledge that Parties have no claims to each other. / Оплата згідно цього Iнвойсу одночасно є підтвердженням виконаних робіт, наданих послуг, кінцевих розрахунків між Сторонами і того, що Сторони не мають взаємних претензій , і не вамагає підписання додаткових документів.",
     error: false,
@@ -63,10 +64,11 @@ class InputsFormInModal extends Component {
         currencyName__eng: this.state.currencyName__eng,
         currencyName__ua: this.state.currencyName__ua,
         totalPrice: this.state.totalPrice,
-        beneficiaryBank__eng: this.state.beneficiaryBank__eng,
-        bankInformation: this.state.bankInformation,
+        quantity: this.state.quantity,
         totalPriceText__eng: this.state.totalPriceText__eng,
         totalPriceText__ua: this.state.totalPriceText__ua,
+        beneficiaryBank__eng: this.state.beneficiaryBank__eng,
+        bankInformation: this.state.bankInformation,
         invoiceDescription: this.state.invoiceDescription
       })
       .then(() => console.log("Document successfully written!"))
@@ -606,6 +608,16 @@ class InputsFormInModal extends Component {
           type="text"
           placeholder="Price of the service"
           onChange={this.handleChange("totalPrice")}
+        />
+        <input
+          className={
+            this.state.totalPrice === "error-border"
+              ? "data-field data-field__input error-border"
+              : "data-field data-field__input"
+          }
+          type="text"
+          placeholder="Set the quantity of the services"
+          onChange={this.handleChange("quantity")}
         />
         <input
           className={

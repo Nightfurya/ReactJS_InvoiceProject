@@ -31,7 +31,7 @@ export default function SimpleTable(props) {
             <TableCell>№ Invoice</TableCell>
             <TableCell>Date of creation:</TableCell>
             <TableCell>Supplier</TableCell>
-            <TableCell>Customer</TableCell>
+            <TableCell style={{ width: "50%" }}>Customer</TableCell>
             <TableCell>Sum</TableCell>
             <TableCell align="center">PDF</TableCell>
           </TableRow>
@@ -44,7 +44,7 @@ export default function SimpleTable(props) {
               </TableCell>
               <TableCell>{item.invoiceDate}</TableCell>
               <TableCell>{item.supplierName__eng}</TableCell>
-              <TableCell>{item.customerInformation}</TableCell>
+              <TableCell style={{ width: "50%" }}>{item.customerInformation}</TableCell>
               <TableCell>
                 {item.totalPrice} {item.currencyName__eng}
               </TableCell>

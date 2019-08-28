@@ -172,7 +172,9 @@ class InvoiceDoc extends Component {
               <div className="supplier-cont">
                 <div>Supplier/Виконавець:</div>
                 <div className="signature-place" />
-                <div>(What is Lorem Ipsum?)</div>
+                <div>
+                  ({currentDocument.supplierName__eng} / {currentDocument.supplierName__ua})
+                </div>
               </div>
             </div>
           ) : (
