@@ -41,8 +41,6 @@ class AuthForm extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.props.userSignInSuccess();
-      } else {
-        console.log(user, "error, i can't sign in");
       }
     });
   };

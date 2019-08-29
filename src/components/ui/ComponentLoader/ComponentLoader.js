@@ -14,9 +14,5 @@ const useStyles = makeStyles(theme => ({
 export default function ComponentLoader() {
   const classes = useStyles();
 
-  return (
-    <>
-      <CircularProgress className={classes.progress} color="secondary" />
-    </>
-  );
+  return <CircularProgress className={classes.progress} color="secondary" />;
 }

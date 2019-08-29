@@ -12,7 +12,7 @@ function App() {
         <Route exact path="/" component={AuthForm} />
         <Route exact path="/home" component={Dashboard} />
         <Route exact path="/invoice/:id?" component={InvoiceDoc} />
-        <Route exact path="/users" />
+        {/* <Route exact path="/users" /> */}
       </Switch>
     </div>
   );

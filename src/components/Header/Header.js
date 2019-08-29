@@ -20,7 +20,7 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <ActionButton color="secondary" onHandleClick={e => this.makeLogOut(e)} buttonName="Log out" />
+        <ActionButton color="secondary" onHandleClick={this.makeLogOut} buttonName="Log out" />
       </header>
     );
   }

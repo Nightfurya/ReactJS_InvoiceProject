@@ -5,10 +5,8 @@ export default function ActionButton(props) {
   const { buttonName, color, onHandleClick } = props;
 
   return (
-    <>
-      <Button variant="contained" onClick={onHandleClick} color={color}>
-        {buttonName}
-      </Button>
-    </>
+    <Button variant="contained" onClick={onHandleClick} color={color}>
+      {buttonName}
+    </Button>
   );
 }
