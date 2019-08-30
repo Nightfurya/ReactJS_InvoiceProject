@@ -200,7 +200,9 @@ class InputsFormInModal extends Component {
             </option>
             {suppliersArray.map(item => (
               <option key={item.supplierName__eng} value={item.supplierName__eng}>
-                {item.supplierName__eng}
+                {item.supplierName__eng.length <= 50
+                  ? item.supplierName__eng
+                  : item.supplierName__eng.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -218,7 +220,9 @@ class InputsFormInModal extends Component {
             </option>
             {suppliersArray.map(item => (
               <option key={item.supplierAddress__eng} value={item.supplierAddress__eng}>
-                {item.supplierAddress__eng}
+                {item.supplierAddress__eng.length <= 50
+                  ? item.supplierAddress__eng
+                  : item.supplierAddress__eng.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -236,7 +240,9 @@ class InputsFormInModal extends Component {
             </option>
             {suppliersArray.map(item => (
               <option key={item.supplierName__ua} value={item.supplierName__ua}>
-                {item.supplierName__ua}
+                {item.supplierName__ua.length <= 50
+                  ? item.supplierName__ua
+                  : item.supplierName__ua.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -254,7 +260,9 @@ class InputsFormInModal extends Component {
             </option>
             {suppliersArray.map(item => (
               <option key={item.supplierAddress__ua} value={item.supplierAddress__ua}>
-                {item.supplierAddress__ua}
+                {item.supplierAddress__ua.length <= 50
+                  ? item.supplierAddress__ua
+                  : item.supplierAddress__ua.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -291,7 +299,9 @@ class InputsFormInModal extends Component {
           </option>
           {customersArray.map(item => (
             <option key={item.customerInformation} value={item.customerInformation}>
-              {item.customerInformation}
+              {item.customerInformation.length <= 50
+                ? item.customerInformation
+                : item.customerInformation.substring(0, 50) + "..."}
             </option>
           ))}
         </select>
@@ -341,7 +351,9 @@ class InputsFormInModal extends Component {
             </option>
             {servicesArray.map(item => (
               <option key={item.description__eng} value={item.description__eng}>
-                {item.description__eng}
+                {item.description__eng.length <= 50
+                  ? item.description__eng
+                  : item.description__eng.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -359,7 +371,9 @@ class InputsFormInModal extends Component {
             </option>
             {servicesArray.map(item => (
               <option key={item.description__ua} value={item.description__ua}>
-                {item.description__ua}
+                {item.description__ua.length <= 50
+                  ? item.description__ua
+                  : item.description__ua.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -410,7 +424,9 @@ class InputsFormInModal extends Component {
             </option>
             {currenciesArray.map(item => (
               <option key={item.currencyName__eng} value={item.currencyName__eng}>
-                {item.currencyName__eng}
+                {item.currencyName__eng.length <= 50
+                  ? item.currencyName__eng
+                  : item.currencyName__eng.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -428,7 +444,9 @@ class InputsFormInModal extends Component {
             </option>
             {currenciesArray.map(item => (
               <option key={item.currencyName__ua} value={item.currencyName__ua}>
-                {item.currencyName__ua}
+                {item.currencyName__ua.length <= 50
+                  ? item.currencyName__ua
+                  : item.currencyName__ua.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -480,7 +498,9 @@ class InputsFormInModal extends Component {
             </option>
             {banksArray.map(item => (
               <option key={item.beneficiaryBank__eng} value={item.beneficiaryBank__eng}>
-                {item.beneficiaryBank__eng}
+                {item.beneficiaryBank__eng.length <= 50
+                  ? item.beneficiaryBank__eng
+                  : item.beneficiaryBank__eng.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -498,7 +518,9 @@ class InputsFormInModal extends Component {
             </option>
             {banksArray.map(item => (
               <option style={{ width: 300 }} key={item.bankInformation} value={item.bankInformation}>
-                {item.bankInformation}
+                {item.bankInformation.length <= 50
+                  ? item.bankInformation
+                  : item.bankInformation.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
