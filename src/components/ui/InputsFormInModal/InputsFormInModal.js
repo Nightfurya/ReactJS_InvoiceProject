@@ -8,8 +8,10 @@ class InputsFormInModal extends Component {
     invoiceDate: "",
     supplier__new: "",
     supplierName__eng: "",
+    initials__eng: "",
     supplierAddress__eng: "",
     supplierName__ua: "",
+    initials__ua: "",
     supplierAddress__ua: "",
     customerInformation__new: "",
     customerInformation: "",
@@ -54,6 +56,8 @@ class InputsFormInModal extends Component {
       .set({
         invoiceNumber: this.state.invoiceNumber,
         invoiceDate: this.state.invoiceDate,
+        initials__eng: this.state.initials__eng,
+        initials__ua: this.state.initials__ua,
         supplierName__eng: this.state.supplierName__eng,
         supplierAddress__eng: this.state.supplierAddress__eng,
         supplierName__ua: this.state.supplierName__ua,
@@ -121,6 +125,8 @@ class InputsFormInModal extends Component {
       db.collection("SUPPLIERS")
         .doc()
         .set({
+          initials__eng: this.state.initials__eng,
+          initials__ua: this.state.initials__ua,
           supplierName__eng: this.state.supplierName__eng,
           supplierAddress__eng: this.state.supplierAddress__eng,
           supplierName__ua: this.state.supplierName__ua,
@@ -153,6 +159,16 @@ class InputsFormInModal extends Component {
           />
           <input
             className={
+              this.state.initials__eng === "error-border"
+                ? "data-field data-field__input error-border"
+                : "data-field data-field__input"
+            }
+            type="text"
+            placeholder="Initials (ENG)"
+            onChange={this.handleChange("initials__eng")}
+          />
+          <input
+            className={
               this.state.supplierAddress__eng === "error-border"
                 ? "data-field data-field__input error-border"
                 : "data-field data-field__input"
@@ -170,6 +186,16 @@ class InputsFormInModal extends Component {
             type="text"
             placeholder="Supplier's name (UA)"
             onChange={this.handleChange("supplierName__ua")}
+          />
+          <input
+            className={
+              this.state.initials__ua === "error-border"
+                ? "data-field data-field__input error-border"
+                : "data-field data-field__input"
+            }
+            type="text"
+            placeholder="Initials (UA)"
+            onChange={this.handleChange("initials__ua")}
           />
           <input
             className={
@@ -203,6 +229,24 @@ class InputsFormInModal extends Component {
                 {item.supplierName__eng.length <= 50
                   ? item.supplierName__eng
                   : item.supplierName__eng.substring(0, 50) + "..."}
+              </option>
+            ))}
+          </select>
+          <p>Initials (ENG):</p>
+          <select
+            className={
+              this.state.initials__eng === "error-border"
+                ? "data-field data-field__select error-border"
+                : "data-field data-field__select"
+            }
+            onChange={this.handleChange("initials__eng")}
+          >
+            <option defaultValue="-- select an option --" style={{ display: "none" }}>
+              -- select an option --
+            </option>
+            {suppliersArray.map(item => (
+              <option key={item.initials__eng} value={item.initials__eng}>
+                {item.initials__eng.length <= 50 ? item.initials__eng : item.initials__eng.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -243,6 +287,24 @@ class InputsFormInModal extends Component {
                 {item.supplierName__ua.length <= 50
                   ? item.supplierName__ua
                   : item.supplierName__ua.substring(0, 50) + "..."}
+              </option>
+            ))}
+          </select>
+          <p>Initials (UA):</p>
+          <select
+            className={
+              this.state.initials__ua === "error-border"
+                ? "data-field data-field__select error-border"
+                : "data-field data-field__select"
+            }
+            onChange={this.handleChange("initials__ua")}
+          >
+            <option defaultValue="-- select an option --" style={{ display: "none" }}>
+              -- select an option --
+            </option>
+            {suppliersArray.map(item => (
+              <option key={item.initials__ua} value={item.initials__ua}>
+                {item.initials__ua.length <= 50 ? item.initials__ua : item.initials__ua.substring(0, 50) + "..."}
               </option>
             ))}
           </select>
@@ -641,6 +703,7 @@ class InputsFormInModal extends Component {
           placeholder="Set the quantity of the services"
           onChange={this.handleChange("quantity")}
         />
+        <p>{(+this.state.totalPrice * +this.state.quantity).toFixed(2)}</p>
         <input
           className={
             this.state.totalPrice === "error-border"
@@ -648,7 +711,7 @@ class InputsFormInModal extends Component {
               : "data-field data-field__input"
           }
           type="text"
-          placeholder="Price of the service in english"
+          placeholder="Total price of the service in english"
           onChange={this.handleChange("totalPriceText__eng")}
         />
         <input
@@ -658,7 +721,7 @@ class InputsFormInModal extends Component {
               : "data-field data-field__input"
           }
           type="text"
-          placeholder="Price of the service in ukrainian"
+          placeholder="Total price of the service in ukrainian"
           onChange={this.handleChange("totalPriceText__ua")}
         />
 

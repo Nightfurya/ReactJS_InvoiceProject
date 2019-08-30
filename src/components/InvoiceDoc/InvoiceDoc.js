@@ -60,7 +60,7 @@ class InvoiceDoc extends Component {
         .split("-")
         .reverse()
         .join(".");
-      totalPay = +currentDocument.quantity * +currentDocument.totalPrice;
+      totalPay = (+currentDocument.quantity * +currentDocument.totalPrice).toFixed(2);
 
       bankInfoList = bankInformation.map(element => {
         return <p className="bank-info-p">{element}</p>;
@@ -144,7 +144,7 @@ class InvoiceDoc extends Component {
                           Ціна товарів/послуг: <span className="date-of-invoice">{currentDocument.totalPrice}</span>
                         </td>
                         <td className="tr-half-td">
-                          Price of the goods/services:
+                          Price of the goods/services:{" "}
                           <span className="date-of-invoice">{currentDocument.totalPrice}</span>
                         </td>
                       </tr>
@@ -204,7 +204,7 @@ class InvoiceDoc extends Component {
                     <div>Supplier/Виконавець:</div>
                     <div className="signature-place" />
                     <div>
-                      ({currentDocument.supplierName__eng} / <br /> {currentDocument.supplierName__ua})
+                      ({currentDocument.initials__ua} / {currentDocument.initials__eng})
                     </div>
                   </div>
                 </div>
